@@ -1,0 +1,14 @@
+{
+  "name": "foundry-vtt-hotbar-lock",
+  "title": "Foundry VTT Hotbar Lock",
+  "description": "Inserts an icon button to lock a users ability to modify the hotbar.",
+  "version": "1.0.0",
+  "author": "blargent",
+  "minimumCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.8.9",
+  "scripts": ["./scripts/index.js"],
+  "styles": ["./styles/index.css"],
+  "url": "https://github.com/Erebus-FoundryVTT-Modules/foundry-vtt-hotbar-lock",
+  "manifest": "https://raw.githubusercontent.com/Erebus-FoundryVTT-Modules/foundry-vtt-hotbar-lock/main/module.json",
+  "download": "https://github.com/Erebus-FoundryVTT-Modules/foundry-vtt-hotbar-lock/archive/refs/heads/main.zip"
+}

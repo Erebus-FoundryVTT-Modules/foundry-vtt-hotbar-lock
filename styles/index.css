@@ -1,0 +1,28 @@
+#hotbar {
+  width: 614px;
+}
+
+#hotbar #hotbar-lock {
+  height: 50%;
+  pointer-events: all;
+}
+
+#hotbar #hotbar-lock.d-none {
+  display: none;
+}
+
+#hotbar #hotbar-lock #bar-lock-toggle {
+  line-height: 24px;
+}
+
+#hotbar #hotbar-lock #bar-lock-toggle i {
+  display: none;
+}
+
+#hotbar #hotbar-lock #bar-lock-toggle.locked .fa-lock {
+  display: inline-block;
+}
+
+#hotbar #hotbar-lock #bar-lock-toggle.unlocked .fa-unlock {
+  display: inline-block;
+}

@@ -1,9 +1,3 @@
-const setMacroDraggable = (macroList, hotbarLocked) => {
-  macroList.find(".macro-icon").each(function () {
-    $(this).attr("draggable", !hotbarLocked);
-  });
-};
-
 Hooks.once("init", () => {
   game.settings.register("foundry-vtt-hotbar-lock", "hotbarLocked", {
     name: "Hotbar Lock",
@@ -14,7 +8,7 @@ Hooks.once("init", () => {
   });
 });
 
-Hooks.on("renderHotbar", (app, html, data) => {
+Hooks.on("renderHotbar", function (app, html, data) {
   let hotbarLocked = game.settings.get(
     "foundry-vtt-hotbar-lock",
     "hotbarLocked"
@@ -30,13 +24,17 @@ Hooks.on("renderHotbar", (app, html, data) => {
   const lockToggle = lock.find("#bar-lock-toggle");
   html.find("#action-bar").after(lock);
 
-  const macroList = html.find("#macro-list");
-  setMacroDraggable(macroList, hotbarLocked);
+  const assignHotbarMacroFn = User.prototype.assignHotbarMacro;
+  User.prototype.assignHotbarMacro = function (...args) {
+    if (hotbarLocked) {
+      return;
+    }
+    assignHotbarMacroFn.call(this, ...args);
+  };
 
   lock.on("click", () => {
     hotbarLocked = !hotbarLocked;
     game.settings.set("foundry-vtt-hotbar-lock", "hotbarLocked", hotbarLocked);
-    setMacroDraggable(macroList, hotbarLocked);
     if (hotbarLocked) {
       lockToggle.addClass("locked");
       lockToggle.removeClass("unlocked");

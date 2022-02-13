@@ -2,7 +2,7 @@
   "name": "foundry-vtt-hotbar-lock",
   "title": "Foundry VTT Hotbar Lock",
   "description": "Inserts an icon button to lock a users ability to modify the hotbar.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "blargent",
   "minimumCoreVersion": "0.7.5",
   "compatibleCoreVersion": "9.245",
